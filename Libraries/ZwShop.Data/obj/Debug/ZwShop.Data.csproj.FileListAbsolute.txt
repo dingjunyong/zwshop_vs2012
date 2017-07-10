@@ -1,0 +1,9 @@
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\bin\Debug\ZwShop.Data.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\bin\Debug\ZwShop.Data.pdb
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\obj\Debug\ZwShop.Data.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\obj\Debug\ZwShop.Data.pdb
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\obj\Debug\ZwShop.Data.csprojResolveAssemblyReference.cache
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\bin\Debug\Dapper.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\bin\Debug\ZwShop.Common.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\bin\Debug\ZwShop.Common.pdb
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Data\bin\Debug\Dapper.xml

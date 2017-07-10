@@ -1,0 +1,4 @@
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Common\bin\Debug\ZwShop.Common.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Common\bin\Debug\ZwShop.Common.pdb
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Common\obj\Debug\ZwShop.Common.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Common\obj\Debug\ZwShop.Common.pdb

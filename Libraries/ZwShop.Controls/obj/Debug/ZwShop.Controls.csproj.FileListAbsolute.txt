@@ -1,0 +1,7 @@
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\obj\Debug\ZwShop.Controls.csprojResolveAssemblyReference.cache
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\bin\Debug\ZwShop.Controls.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\bin\Debug\ZwShop.Controls.pdb
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\bin\Debug\ZwShop.Common.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\bin\Debug\ZwShop.Common.pdb
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\obj\Debug\ZwShop.Controls.dll
+E:\QlPro\www.1yzw.com_vs2012\Libraries\ZwShop.Controls\obj\Debug\ZwShop.Controls.pdb

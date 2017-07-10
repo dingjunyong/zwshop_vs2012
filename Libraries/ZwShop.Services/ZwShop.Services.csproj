@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86388342-B3FE-4D69-9A69-C752FE79A09C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZwShop.Services</RootNamespace>
+    <AssemblyName>ZwShop.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\Unity.2.0\lib\20\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audit\ActivityLog.cs" />
+    <Compile Include="Audit\ActivityLogType.cs" />
+    <Compile Include="Audit\CustomerActivityService.cs" />
+    <Compile Include="Audit\Extensions.cs" />
+    <Compile Include="Audit\ICustomerActivityService.cs" />
+    <Compile Include="Audit\ILogService.cs" />
+    <Compile Include="Audit\ISearchLogService.cs" />
+    <Compile Include="Audit\Log.cs" />
+    <Compile Include="Audit\LogService.cs" />
+    <Compile Include="Audit\LogTypeEnum.cs" />
+    <Compile Include="Audit\SearchLog.cs" />
+    <Compile Include="Audit\SearchLogService.cs" />
+    <Compile Include="Audit\SearchTermReportLine.cs" />
+    <Compile Include="Audit\UsersOnline\IOnlineUserService.cs" />
+    <Compile Include="Audit\UsersOnline\OnlineUserInfo.cs" />
+    <Compile Include="Audit\UsersOnline\OnlineUserService.cs" />
+    <Compile Include="Audit\UsersOnline\PurgeOnlineUsersTask.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Brands\Brand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Brands\BrandService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Brands\IBrandService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\ClearCacheTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\ICacheManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\ShopNullCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\ShopRequestCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\ShopStaticCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Categories\Category.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Categories\CategoryService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Categories\Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Categories\ICategoryService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Settings\ISettingManager.cs" />
+    <Compile Include="Configuration\Settings\Setting.cs" />
+    <Compile Include="Configuration\Settings\SettingManager.cs" />
+    <Compile Include="Configuration\ShopConfig.cs" />
+    <Compile Include="Content\Topics\ITopicService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Content\Topics\Topic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Content\Topics\TopicService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerBestReportLine.cs" />
+    <Compile Include="Customer\CustomerEventArgs.cs" />
+    <Compile Include="Customer\CustomerRegistrationTypeEnum.cs" />
+    <Compile Include="Customer\CustomerReportByAttributeKeyLine.cs" />
+    <Compile Include="Customer\CustomerRole.cs" />
+    <Compile Include="Customer\CustomerService.cs" />
+    <Compile Include="Customer\DeleteExpiredCustomerSessionsTask.cs" />
+    <Compile Include="Customer\Extensions.cs" />
+    <Compile Include="Customer\ICustomerService.cs" />
+    <Compile Include="Directory\GeoCountryLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Directory\IStateProvinceService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Directory\StateProvince.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Directory\StateProvinceService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventContext.cs" />
+    <Compile Include="ExportImport\ExcelHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportImport\ExcelHelperReadTableMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportImport\ExportManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportImport\IExportManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportImport\IImportManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportImport\ImportManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\DependencyResolverFactory.cs" />
+    <Compile Include="Infrastructure\IDependencyResolver.cs" />
+    <Compile Include="Infrastructure\IDependencyResolverFactory.cs" />
+    <Compile Include="Infrastructure\IoC.cs" />
+    <Compile Include="Infrastructure\UnityDependencyResolver.cs" />
+    <Compile Include="Infrastructure\UnityPerExecutionContextLifetimeManager.cs" />
+    <Compile Include="Infrastructure\UnityServiceLocator.cs" />
+    <Compile Include="Media\Extensions.cs" />
+    <Compile Include="Media\IPictureService.cs" />
+    <Compile Include="Media\Picture.cs" />
+    <Compile Include="Media\PictureService.cs" />
+    <Compile Include="Media\PictureTypeEnum.cs" />
+    <Compile Include="Messages\EmailAccount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\IMessageService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\MessageService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\MessageTemplate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\NewsLetterSubscription.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\QueuedEmail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\SendQueuedMessagesTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\SMS\ISMSProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\SMS\ISMSService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\SMS\SMSProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\SMS\SMSService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\IOrderService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\IShoppingCartService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\Order.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderNote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderProductVariant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderStatusEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\RewardPointsHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\ShoppingCart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\ShoppingCartItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\ShoppingCartService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Orders\ShoppingCartTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\CancelPaymentResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\IPaymentMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\IPaymentService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\PaymentInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\PaymentMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\PaymentMethodTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\PaymentService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\PaymentStatusEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Payment\ProcessPaymentResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\BackordersModeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\IProductService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ManageInventoryMethodEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\Product.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductPicture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductReview.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductReviewHelpfulness.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductSortingEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductVariant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\ProductVariantEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Profile\DateTimeHelper.cs" />
+    <Compile Include="Profile\Extensions.cs" />
+    <Compile Include="Profile\MembershipHttpModule.cs" />
+    <Compile Include="Profile\StoreMembershipProvider.cs" />
+    <Compile Include="Profile\StoreRoleProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\BannedIpAddress.cs" />
+    <Compile Include="Security\BannedIpNetwork.cs" />
+    <Compile Include="Security\BlacklistHttpModule.cs" />
+    <Compile Include="Security\BlacklistService.cs" />
+    <Compile Include="Security\CustomerAction.cs" />
+    <Compile Include="Security\IBlacklistService.cs" />
+    <Compile Include="Security\ObjectTypeEnum.cs" />
+    <Compile Include="Security\SecurityHelper.cs" />
+    <Compile Include="Shipping\IShippingService.cs" />
+    <Compile Include="Shipping\ShippingMethod.cs" />
+    <Compile Include="Shipping\ShippingService.cs" />
+    <Compile Include="Shipping\ShippingStatusEnum.cs" />
+    <Compile Include="ShopContext.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\TaskManager.cs" />
+    <Compile Include="Tasks\TaskThread.cs" />
+    <Compile Include="Utils\Html\EditorTypeEnum.cs" />
+    <Compile Include="Utils\KeepAliveTask.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZwShop.Common\ZwShop.Common.csproj">
+      <Project>{40d6c9ad-9853-4400-9a88-a88d3251be50}</Project>
+      <Name>ZwShop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZwShop.Data\ZwShop.Data.csproj">
+      <Project>{788fbf23-3040-4cb3-9381-8aaac17f8cfa}</Project>
+      <Name>ZwShop.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

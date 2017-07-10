@@ -1,0 +1,16 @@
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\obj\Debug\ZwShop.Payment.Alipay.csprojResolveAssemblyReference.cache
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Payment.Alipay.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Payment.Alipay.pdb
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Common.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Services.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\Microsoft.Practices.Unity.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\Dapper.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Common.pdb
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Services.pdb
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\Microsoft.Practices.Unity.xml
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\Dapper.xml
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\obj\Debug\ZwShop.Payment.Alipay.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\obj\Debug\ZwShop.Payment.Alipay.pdb
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Data.dll
+E:\QlPro\www.1yzw.com_vs2012\Payment\ZwShop.Payment.Alipay\bin\Debug\ZwShop.Data.pdb
