@@ -10,6 +10,7 @@ using ZwShop.Services.Infrastructure;
 using ZwShop.Services.Orders;
 using ZwShop.Services.Payment;
 using ZwShop.Common.Utils;
+using ZwShop.Data.Entity.CustomerManagement;
 
 namespace ZwShop.Payment.Alipay
 {

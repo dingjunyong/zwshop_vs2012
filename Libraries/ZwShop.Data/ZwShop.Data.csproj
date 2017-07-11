@@ -48,8 +48,14 @@
     <Compile Include="Entity\Customer\CustomerAttribute.cs" />
     <Compile Include="Entity\Customer\CustomerRoleIdType.cs" />
     <Compile Include="Entity\Customer\CustomerSession.cs" />
+    <Compile Include="Repository\Customer\AddressRepository.cs" />
+    <Compile Include="Repository\Customer\ICustomerAttributeRepository.cs" />
+    <Compile Include="Repository\Customer\CustomerAttributeRepository.cs" />
     <Compile Include="Repository\Customer\CustomerRepository.cs" />
+    <Compile Include="Repository\Customer\CustomerSessionRepository.cs" />
+    <Compile Include="Repository\Customer\IAddressRepository.cs" />
     <Compile Include="Repository\Customer\ICustomerRepository.cs" />
+    <Compile Include="Repository\Customer\ICustomerSessionRepository.cs" />
     <Compile Include="ShopObjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

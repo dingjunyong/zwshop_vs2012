@@ -47,6 +47,10 @@
       <Project>{40d6c9ad-9853-4400-9a88-a88d3251be50}</Project>
       <Name>ZwShop.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\ZwShop.Data\ZwShop.Data.csproj">
+      <Project>{788fbf23-3040-4cb3-9381-8aaac17f8cfa}</Project>
+      <Name>ZwShop.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\ZwShop.Services\ZwShop.Services.csproj">
       <Project>{86388342-b3fe-4d69-9a69-c752fe79a09c}</Project>
       <Name>ZwShop.Services</Name>

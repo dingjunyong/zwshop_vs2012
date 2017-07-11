@@ -12,5 +12,7 @@ namespace ZwShop.Data.Entity.CustomerManagement
         public DateTime LastAccessed { get; set; }
 
         public bool IsExpired { get; set; }
+
+        public virtual Customer Customer { get; set; }
     }
 }

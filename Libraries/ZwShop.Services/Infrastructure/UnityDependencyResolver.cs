@@ -24,6 +24,8 @@ using ZwShop.Services.Products;
 using ZwShop.Services.Security;
 using ZwShop.Services.Shipping;
 using ZwShop.Data;
+using ZwShop.Services.Caching;
+using ZwShop.Data.Repository.CustomerManagement;
 namespace ZwShop.Services.Infrastructure
 {
     public class UnityDependencyResolver : IDependencyResolver
@@ -64,13 +66,16 @@ namespace ZwShop.Services.Infrastructure
             //Take into account that Types and Mappings registration could be also done using the UNITY XML configuration
             //But we prefer doing it here (C# code) because we'll catch errors at compiling time instead execution time, if any type has been written wrong.
 
-            //Register repositories mappings
+            //×¢²áÊý¾Ý²Ö´¢²ã
             //to be done
+            container.RegisterType<ICustomerRepository, CustomerRepository>(new UnityPerExecutionContextLifetimeManager());
 
-            //Register default cache manager            
+
+
+            //×¢²áÄ¬ÈÏ»º´æ           
             //container.RegisterType<ICacheManager, ShopRequestCache>(new PerExecutionContextLifetimeManager());
 
-            //Register managers(services) mappings
+            //×¢²áÒµÎñÂß¼­·þÎñ
             container.RegisterType<IOnlineUserService, OnlineUserService>(new UnityPerExecutionContextLifetimeManager());
             container.RegisterType<ISearchLogService, SearchLogService>(new UnityPerExecutionContextLifetimeManager());
             container.RegisterType<ICustomerActivityService, CustomerActivityService>(new UnityPerExecutionContextLifetimeManager());

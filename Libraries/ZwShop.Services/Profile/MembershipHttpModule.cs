@@ -57,34 +57,9 @@ namespace ZwShop.Services.Profile
                 {
                     if (!String.IsNullOrEmpty(HttpContext.Current.User.Identity.Name)
                         && customer.Active
-                        && !customer.Deleted && !customer.IsGuest)
+                        && !customer.Deleted && customer.CustomerRoleIdType != CustomerRoleIdType.Guest)
                     {
-                        //impersonate user if required (currently used for 'phone order' support)
-                        //and validate that the current user is admin
-                        //and validate that we're in public store
-                        if (customer.IsAdmin &&
-                            !CommonHelper.IsAdmin() &&
-                            customer.ImpersonatedCustomerGuid != Guid.Empty)
-                        {
-                            //set impersonated customer
-                            var impersonatedCustomer = IoC.Resolve<ICustomerService>().GetCustomerByGuid(customer.ImpersonatedCustomerGuid);
-                            if (impersonatedCustomer != null)
-                            {
-                                ShopContext.Current.User = impersonatedCustomer;
-                                ShopContext.Current.IsCurrentCustomerImpersonated = true;
-                                ShopContext.Current.OriginalUser = customer;
-                            }
-                            else
-                            {
-                                //set current customer
-                                ShopContext.Current.User = customer;
-                            }
-                        }
-                        else
-                        {
-                            //set current customer
-                            ShopContext.Current.User = customer;
-                        }
+                        ShopContext.Current.User = customer;
 
                         //set current customer session
                         var customerSession = IoC.Resolve<ICustomerService>().GetCustomerSessionByCustomerId(ShopContext.Current.User.Id);
@@ -113,7 +88,8 @@ namespace ZwShop.Services.Profile
                 if (ShopContext.Current.Session != null)
                 {
                     var guestCustomer = ShopContext.Current.Session.Customer;
-                    if (guestCustomer != null && guestCustomer.Active && !guestCustomer.Deleted && guestCustomer.IsGuest)
+                    if (guestCustomer != null && guestCustomer.Active && !guestCustomer.Deleted
+                        && guestCustomer.CustomerRoleIdType == CustomerRoleIdType.Guest)
                     {
                         ShopContext.Current.User = guestCustomer;
                     }

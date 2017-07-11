@@ -204,15 +204,7 @@ namespace ZwShop.Services.Profile
             if (customer == null)
                 return null;
 
-            if (IoC.Resolve<ICustomerService>().UsernamesEnabled)
-            {
-                return customer.Username;
-            }
-            else
-            {
-                //little hack here. username variable was used to store customer email
-                return customer.Email;
-            }
+            return customer.Username;
         }
 
         /// <summary>

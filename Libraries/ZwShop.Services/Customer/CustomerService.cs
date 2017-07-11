@@ -73,7 +73,12 @@ namespace ZwShop.Services.CustomerManagement
 
         public Customer GetCustomerByUsernameOrEmailOrPhoneNumber(string email_username_phonenumber)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(email_username_phonenumber))
+                return null;
+
+            var customer = _customerRepository.
+                GetCustomerByUserNameOrEmailOrPhone(email_username_phonenumber);
+            return customer;
         }
 
         public Customer GetCustomerById(int customerId)
@@ -126,9 +131,65 @@ namespace ZwShop.Services.CustomerManagement
             throw new NotImplementedException();
         }
 
-        public bool Login(string email, string password)
+        public bool Login(Guid customerGuid, string password)
         {
-            throw new NotImplementedException();
+            var customer = _customerRepository.GetCustomerByGuid(customerGuid);
+            if (customer == null)
+                return false;
+
+            if (!customer.Active)
+                return false;
+
+            if (customer.Deleted)
+                return false;
+
+            if (customer.CustomerRoleIdType==CustomerRoleIdType.Guest)
+                return false;
+
+            string passwordHash = CreatePasswordHash(password, customer.SaltKey);
+            bool result = customer.PasswordHash.Equals(passwordHash);
+
+            if (result)
+            {
+                var registeredCustomerSession = GetCustomerSessionByCustomerId(customer.Id);
+                if (registeredCustomerSession != null)
+                {
+                    registeredCustomerSession.IsExpired = false;
+                    var anonCustomerSession = ShopContext.Current.Session;
+                    var cart1 = IoC.Resolve<IShoppingCartService>().GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
+                    var cart2 = IoC.Resolve<IShoppingCartService>().GetCurrentShoppingCart(ShoppingCartTypeEnum.Wishlist);
+                    ShopContext.Current.Session = registeredCustomerSession;
+
+                    if ((anonCustomerSession != null) && (anonCustomerSession.CustomerSessionGuid != registeredCustomerSession.CustomerSessionGuid))
+                    {
+                        foreach (ShoppingCartItem item in cart1)
+                        {
+                            IoC.Resolve<IShoppingCartService>().AddToCart(
+                                item.ShoppingCartType,
+                                item.ProductId,
+                                item.Quantity);
+                            IoC.Resolve<IShoppingCartService>().DeleteShoppingCartItem(item.Id, true);
+                        }
+                        foreach (ShoppingCartItem item in cart2)
+                        {
+                            IoC.Resolve<IShoppingCartService>().AddToCart(
+                                item.ShoppingCartType,
+                                item.ProductId,
+                                item.Quantity);
+                            IoC.Resolve<IShoppingCartService>().DeleteShoppingCartItem(item.Id, true);
+                        }
+                    }
+                }
+                if (ShopContext.Current.Session == null)
+                    ShopContext.Current.Session = ShopContext.Current.GetSession(true);
+                ShopContext.Current.Session.IsExpired = false;
+                ShopContext.Current.Session.LastAccessed = DateTime.UtcNow;
+                ShopContext.Current.Session.CustomerId = customer.Id;
+                ShopContext.Current.Session = SaveCustomerSession(ShopContext.Current.Session.CustomerSessionGuid, ShopContext.Current.Session.CustomerId, NopContext.Current.Session.LastAccessed, NopContext.Current.Session.IsExpired);
+            }
+            return result;
+
+
         }
 
         public void Logout()
@@ -173,5 +234,13 @@ namespace ZwShop.Services.CustomerManagement
             throw new NotImplementedException();
         }
         #endregion
+
+
+        private string CreatePasswordHash(string password, string salt)
+        {
+            //MD5, SHA1
+            string passwordFormat = "SHA1";
+            return FormsAuthentication.HashPasswordForStoringInConfigFile(password + salt, passwordFormat);
+        }
     }
 }

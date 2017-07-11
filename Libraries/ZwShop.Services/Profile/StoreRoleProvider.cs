@@ -75,24 +75,24 @@ namespace ZwShop.Services.Profile
         {
             var roles = new List<string>();
 
-            Customer customer = IoC.Resolve<ICustomerService>().GetCustomerByUsernameOrEmailOrPhoneNumber(username);
+            //Customer customer = IoC.Resolve<ICustomerService>().GetCustomerByUsernameOrEmailOrPhoneNumber(username);
             
-            if (customer == null)
-            {
-                return roles.ToArray();
-            }
-            else
-            {
-                var customerRoles = IoC.Resolve<ICustomerService>().GetCustomerRolesByCustomerId(customer.Id, false);
-                foreach (var cr in customerRoles)
-                {
-                    if (cr.Active)
-                    {
-                        if (!roles.Contains(cr.Name))
-                            roles.Add(cr.Name);
-                    }
-                }
-            }
+            //if (customer == null)
+            //{
+            //    return roles.ToArray();
+            //}
+            //else
+            //{
+            //    var customerRoles = IoC.Resolve<ICustomerService>().GetCustomerRolesByCustomerId(customer.Id, false);
+            //    foreach (var cr in customerRoles)
+            //    {
+            //        if (cr.Active)
+            //        {
+            //            if (!roles.Contains(cr.Name))
+            //                roles.Add(cr.Name);
+            //        }
+            //    }
+            //}
             return roles.ToArray();
         }
 
@@ -155,12 +155,6 @@ namespace ZwShop.Services.Profile
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the specified user is in the specified role for the configured applicationName.
-        /// </summary>
-        /// <param name="username">The user name to search for.</param>
-        /// <param name="roleName">The role to search in.</param>
-        /// <returns>true if the specified user is in the specified role for the configured applicationName; otherwise, false.</returns>
         public override bool IsUserInRole(string username, string roleName)
         {
             if (String.IsNullOrEmpty(roleName))
@@ -174,15 +168,15 @@ namespace ZwShop.Services.Profile
                 return false;
             }
 
-            var customerRoles = IoC.Resolve<ICustomerService>().GetCustomerRolesByCustomerId(customer.Id, false);
-            foreach (var cr in customerRoles)
-            {
-                if (cr.Active)
-                {
-                    if (roleName.ToLowerInvariant() == cr.Name.ToLowerInvariant())
-                        return true;
-                }
-            }
+            //var customerRoles = IoC.Resolve<ICustomerService>().GetCustomerRolesByCustomerId(customer.Id, false);
+            //foreach (var cr in customerRoles)
+            //{
+            //    if (cr.Active)
+            //    {
+            //        if (roleName.ToLowerInvariant() == cr.Name.ToLowerInvariant())
+            //            return true;
+            //    }
+            //}
 
             return false;
         }

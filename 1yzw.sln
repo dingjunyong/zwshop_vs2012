@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZwShop.Payment.Alipay", "Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZwShop.Web", "ZwShop.Web\ZwShop.Web.csproj", "{55076E32-B440-4A18-83E7-7445EE997BD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZwShop.WebApi", "ZwShop.WebApi\ZwShop.WebApi.csproj", "{A129E282-3261-456D-BAE7-D4ADD6C75719}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{55076E32-B440-4A18-83E7-7445EE997BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55076E32-B440-4A18-83E7-7445EE997BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55076E32-B440-4A18-83E7-7445EE997BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A129E282-3261-456D-BAE7-D4ADD6C75719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A129E282-3261-456D-BAE7-D4ADD6C75719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A129E282-3261-456D-BAE7-D4ADD6C75719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A129E282-3261-456D-BAE7-D4ADD6C75719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

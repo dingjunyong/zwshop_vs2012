@@ -12,7 +12,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
     {
         Customer GetCustomerById(int id);
 
-        Customer GetCustomerByGuid(string guid);
+        Customer GetCustomerByGuid(Guid guid);
 
         Customer GetCustomerByUserNameOrEmailOrPhone(string email_username_phonenumber);
 

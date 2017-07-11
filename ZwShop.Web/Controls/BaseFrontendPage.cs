@@ -19,6 +19,7 @@ using ZwShop.Services.Directory;
 using ZwShop.Common.Utils;
 using ZwShop.Services.Audit.UsersOnline;
 using ZwShop.Services.Infrastructure;
+using ZwShop.Data.Entity.CustomerManagement;
 
 namespace ZwShop.Web
 {
@@ -52,7 +53,7 @@ namespace ZwShop.Web
             if (this.SettingManager.GetSettingValueBoolean("Common.StoreClosed"))
             {
                 if (ShopContext.Current.User != null &&
-                    ShopContext.Current.User.IsAdmin &&
+                    ShopContext.Current.User.CustomerRoleIdType == CustomerRoleIdType.Administrator &&
                     this.SettingManager.GetSettingValueBoolean("Common.StoreClosed.AllowAdminAccess"))
                 {
                     //do nothing - allow admin access
@@ -84,20 +85,18 @@ namespace ZwShop.Web
             }
 
             //allow navigation only for registered customers
-            if (this.CustomerService.AllowNavigationOnlyRegisteredCustomers)
-            {
-                if (ShopContext.Current.User == null || ShopContext.Current.User.IsGuest)
-                {
-                    if (!this.AllowGuestNavigation)
-                    {
-                        //it's not login/logout/passwordrecovery/captchaimage/register/accountactivation page (be default)
-                        //string loginURL = SEOHelper.GetLoginPageUrl(false);
-                        Response.Redirect("");
-                    }
-                }
-            }
-
-           
+            //if (this.CustomerService.AllowNavigationOnlyRegisteredCustomers)
+            //{
+            //    if (ShopContext.Current.User == null || ShopContext.Current.User.IsGuest)
+            //    {
+            //        if (!this.AllowGuestNavigation)
+            //        {
+            //            //it's not login/logout/passwordrecovery/captchaimage/register/accountactivation page (be default)
+            //            //string loginURL = SEOHelper.GetLoginPageUrl(false);
+            //            Response.Redirect("");
+            //        }
+            //    }
+            //}
             base.OnPreInit(e);
         }
 

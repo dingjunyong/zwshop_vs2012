@@ -33,7 +33,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
             }
         }
 
-        public Customer GetCustomerByGuid(string guid)
+        public Customer GetCustomerByGuid(Guid guid)
         {
             using (var conn = _context.OpenConnection())
             {

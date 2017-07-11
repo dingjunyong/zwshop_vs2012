@@ -1,0 +1,12 @@
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\ZwShop.WebApi.dll
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\ZwShop.WebApi.pdb
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\Newtonsoft.Json.dll
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\System.Net.Http.Formatting.dll
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\System.Web.Http.dll
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\System.Web.Http.WebHost.dll
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\Newtonsoft.Json.xml
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\System.Net.Http.Formatting.xml
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\System.Web.Http.xml
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\bin\System.Web.Http.WebHost.xml
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\obj\Debug\ZwShop.WebApi.dll
+E:\QlPro\www.1yzw.com_vs2012\ZwShop.WebApi\obj\Debug\ZwShop.WebApi.pdb

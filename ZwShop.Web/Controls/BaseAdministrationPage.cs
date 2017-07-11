@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using AjaxControlToolkit;
 using ZwShop.Services.Audit.UsersOnline;
 using ZwShop.Services.Infrastructure;
+using ZwShop.Data.Entity.CustomerManagement;
 
 
 namespace ZwShop.Web
@@ -99,10 +100,10 @@ namespace ZwShop.Web
         {
             if (ShopContext.Current == null ||
                 ShopContext.Current.User == null ||
-                ShopContext.Current.User.IsGuest)
+                ShopContext.Current.User.CustomerRoleIdType == CustomerRoleIdType.Guest)
                 return false;
 
-            return ShopContext.Current.User.IsAdmin;
+            return ShopContext.Current.User.CustomerRoleIdType == CustomerRoleIdType.Administrator;
         }
 
         protected virtual bool ValidateIP()
