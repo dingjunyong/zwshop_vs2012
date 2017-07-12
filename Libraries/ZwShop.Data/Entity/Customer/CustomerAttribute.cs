@@ -9,8 +9,6 @@ namespace ZwShop.Data.Entity.CustomerManagement
         public string Key { get; set; }
 
         public string Value { get; set; }
-
-        public string Description { get; set; }
         #endregion 
 
         #region Navigation Properties

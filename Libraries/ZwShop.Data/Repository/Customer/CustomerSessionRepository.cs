@@ -22,7 +22,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
                 var param = new DynamicParameters();
                 param.Add("@CustomerSessionGuid", customerSessionGuid);
                 var result = conn.Query<CustomerSession>(
-                    "get_customersession_by_guid",
+                    "customersession_get_by_guid",
                     param: param,
                     commandType: CommandType.StoredProcedure).FirstOrDefault();
                 return result;
@@ -36,7 +36,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
                 var param = new DynamicParameters();
                 param.Add("@CustomerId", customerId);
                 var result = conn.Query<CustomerSession>(
-                    "get_customersession_last_by_customerId",
+                    "customersession_get_last_by_customerId",
                     param: param,
                     commandType: CommandType.StoredProcedure).FirstOrDefault();
                 return result;
@@ -50,7 +50,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
                 var param = new DynamicParameters();
                 param.Add("@CustomerSessionGuid", customerSessionGuid);
                 var result = conn.Execute(
-                    "delete_customersession_by_guid",
+                    "customersession_delete_by_guid",
                     param: param,
                     commandType: CommandType.StoredProcedure);
                 return result;
@@ -62,7 +62,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
             using (var conn = _context.OpenConnection())
             {
                 var result = conn.Query<CustomerSession>(
-                    "get_customersession_all",
+                    "customersession_get_all",
                     commandType: CommandType.StoredProcedure).ToList();
                 return result;
             }
@@ -73,7 +73,7 @@ namespace ZwShop.Data.Repository.CustomerManagement
             using (var conn = _context.OpenConnection())
             {
                 var result = conn.Query<CustomerSession>(
-                    "get_customersession_with_nonempty_shoppingcart",
+                    "customersession_get_with_nonempty_shoppingcart",
                     commandType: CommandType.StoredProcedure).ToList();
                 return result;
             }
@@ -84,13 +84,14 @@ namespace ZwShop.Data.Repository.CustomerManagement
             using (var conn = _context.OpenConnection())
             {
                 var result = conn.Execute(
-                    "delete_customersession_expire",
+                    "customersession_delete_expire",
                     commandType: CommandType.StoredProcedure);
                 return result;
             }
         }
 
-        public int SaveCustomerSession(Guid customerSessionGuid, int customerId, DateTime lastAccessed, bool isExpired)
+        public int SaveCustomerSession(Guid customerSessionGuid,
+            int customerId, DateTime lastAccessed, bool isExpired)
         {
             throw new NotImplementedException();
         }
