@@ -54,7 +54,7 @@ namespace ZwShop.Services.Messages
         {
             get
             {
-                return IoC.Resolve<ICustomerService>().GetCustomerByEmail(Email);
+                return IoC.Resolve<ICustomerService>().GetCustomerByUsernameOrEmailOrPhoneNumber(Email);
             }
         }
 

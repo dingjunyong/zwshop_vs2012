@@ -200,7 +200,7 @@ namespace ZwShop.Services.Profile
         /// <returns>The user name associated with the specified e-mail address. If no match is found, return null.</returns>
         public override string GetUserNameByEmail(string email)
         {
-            var customer = IoC.Resolve<ICustomerService>().GetCustomerByEmail(email);
+            var customer = IoC.Resolve<ICustomerService>().GetCustomerByUsernameOrEmailOrPhoneNumber(email);
             if (customer == null)
                 return null;
 
@@ -335,13 +335,13 @@ namespace ZwShop.Services.Profile
         public override bool ValidateUser(string email_username_phonenumber, string password)
         {
             Customer customer = null;
-            string phoneNumber = string.Empty;
+            Guid customerGuid = Guid.Empty;
             customer = IoC.Resolve<ICustomerService>().GetCustomerByUsernameOrEmailOrPhoneNumber(email_username_phonenumber);
             if (customer != null)
             {
-                phoneNumber = customer.PhoneNumber;
+                customerGuid = customer.CustomerGuid;
             }
-            return IoC.Resolve<ICustomerService>().Login(phoneNumber, password);
+            return IoC.Resolve<ICustomerService>().Login(customerGuid, password);
         }
         #endregion
 

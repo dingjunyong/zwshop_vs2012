@@ -65,6 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administration\backups\Index.htm" />
+    <Content Include="Administration\CatalogHome.aspx" />
+    <Content Include="Administration\Categories.aspx" />
+    <Content Include="Administration\CategoryAdd.aspx" />
+    <Content Include="Administration\CategoryDetails.aspx" />
     <Content Include="Administration\Common\ico-blacklist.png" />
     <Content Include="Administration\Common\ico-catalog.png" />
     <Content Include="Administration\Common\ico-configuration.png" />
@@ -79,8 +83,14 @@
     <Content Include="Administration\Common\ico-stat1.gif" />
     <Content Include="Administration\Common\ico-system.png" />
     <Content Include="Administration\Common\ico-warnings.gif" />
+    <Content Include="Administration\CustomersHome.aspx" />
     <Content Include="Administration\Default.aspx" />
     <Content Include="Administration\Login.aspx" />
+    <Content Include="Administration\Modules\CatalogHome.ascx" />
+    <Content Include="Administration\Modules\Categories.ascx" />
+    <Content Include="Administration\Modules\CategoryAdd.ascx" />
+    <Content Include="Administration\Modules\CategoryDetails.ascx" />
+    <Content Include="Administration\Modules\CustomersHome.ascx" />
     <Content Include="Administration\Modules\DecimalTextBox.ascx" />
     <Content Include="Administration\Modules\MenuControl.ascx" />
     <Content Include="Administration\Payment\Alipay\HostedPaymentConfig.ascx" />
@@ -131,6 +141,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\CatalogHome.aspx.cs">
+      <DependentUpon>CatalogHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\CatalogHome.aspx.designer.cs">
+      <DependentUpon>CatalogHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Categories.aspx.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Categories.aspx.designer.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\CategoryAdd.aspx.cs">
+      <DependentUpon>CategoryAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\CategoryAdd.aspx.designer.cs">
+      <DependentUpon>CategoryAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\CategoryDetails.aspx.cs">
+      <DependentUpon>CategoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\CategoryDetails.aspx.designer.cs">
+      <DependentUpon>CategoryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\CustomersHome.aspx.cs">
+      <DependentUpon>CustomersHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\CustomersHome.aspx.designer.cs">
+      <DependentUpon>CustomersHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +196,41 @@
     </Compile>
     <Compile Include="Administration\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Modules\CatalogHome.ascx.cs">
+      <DependentUpon>CatalogHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Modules\CatalogHome.ascx.designer.cs">
+      <DependentUpon>CatalogHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Modules\Categories.ascx.cs">
+      <DependentUpon>Categories.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Modules\Categories.ascx.designer.cs">
+      <DependentUpon>Categories.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Modules\CategoryAdd.ascx.cs">
+      <DependentUpon>CategoryAdd.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Modules\CategoryAdd.ascx.designer.cs">
+      <DependentUpon>CategoryAdd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Modules\CategoryDetails.ascx.cs">
+      <DependentUpon>CategoryDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Modules\CategoryDetails.ascx.designer.cs">
+      <DependentUpon>CategoryDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Modules\CustomersHome.ascx.cs">
+      <DependentUpon>CustomersHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Modules\CustomersHome.ascx.designer.cs">
+      <DependentUpon>CustomersHome.ascx</DependentUpon>
     </Compile>
     <Compile Include="Administration\Modules\DecimalTextBox.ascx.cs">
       <DependentUpon>DecimalTextBox.ascx</DependentUpon>

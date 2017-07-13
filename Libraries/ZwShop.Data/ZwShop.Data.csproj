@@ -48,6 +48,9 @@
     <Compile Include="Entity\Customer\CustomerAttribute.cs" />
     <Compile Include="Entity\Customer\CustomerRoleIdType.cs" />
     <Compile Include="Entity\Customer\CustomerSession.cs" />
+    <Compile Include="Repository\Categories\Category.cs" />
+    <Compile Include="Repository\Categories\CategoryRepository.cs" />
+    <Compile Include="Repository\Categories\ICategoryRepository.cs" />
     <Compile Include="Repository\Customer\AddressRepository.cs" />
     <Compile Include="Repository\Customer\ICustomerAttributeRepository.cs" />
     <Compile Include="Repository\Customer\CustomerAttributeRepository.cs" />

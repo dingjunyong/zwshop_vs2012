@@ -69,6 +69,9 @@ namespace ZwShop.Services.Infrastructure
             //×¢²áÊý¾Ý²Ö´¢²ã
             //to be done
             container.RegisterType<ICustomerRepository, CustomerRepository>(new UnityPerExecutionContextLifetimeManager());
+            container.RegisterType<ICustomerSessionRepository, CustomerSessionRepository>(new UnityPerExecutionContextLifetimeManager());
+            container.RegisterType<ICustomerAttributeRepository, CustomerAttributeRepository>(new UnityPerExecutionContextLifetimeManager());
+            container.RegisterType<IAddressRepository, AddressRepository>(new UnityPerExecutionContextLifetimeManager());
 
 
 

@@ -1,7 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode title="首页"  description="管理后台-首页" >
+  <siteMapNode title="Home"  description="Administration Home" >
     <!-- Home -->
-    <siteMapNode title="仪表盘"  url="~/admin/" IconUrl="~/admin/common/ico-dashboard.png" description="仪表盘" />
+    <siteMapNode title="仪表盘"  url="~/administration/" IconUrl="~/Administration/common/ico-dashboard.png" description="仪表盘" />
+
+    <!-- Catalog -->
+    <siteMapNode title="分类及产品" url="~/administration/cataloghome.aspx" IconUrl="~/administration/common/ico-catalog.png" description="Catalog Home">
+      <siteMapNode title="分类管理" url="~/administration/categories.aspx" description="Manage Product Categories"/>
+      <siteMapNode title="产品管理" url="~/administration/productshome.aspx" description="Products Home">
+        <siteMapNode title="所有产品" url="~/administration/products.aspx" description="Manage Products"/>
+        <siteMapNode title="批量编辑产品" url="~/administration/bulkeditproducts.aspx" description="Bulk Edit Products"/>
+        <siteMapNode title="评论/晒图" url="~/administration/productreviews.aspx" description="Manage Product Reviews"/>
+        <siteMapNode title="低库存报表" url="~/administration/productvariantslowstock.aspx" description="View Low Product Stock Report"/>
+      </siteMapNode>
+      <siteMapNode title="品牌管理" url="~/administration/manufacturers.aspx" description="Manage Product Manufacturers"/>
+    </siteMapNode>
+    <!-- End Catalog -->
+
+    <!-- Sales -->
+    <siteMapNode title="销售及订单" url="~/administration/saleshome.aspx" IconUrl="~/administration/common/ico-sales.png" description="Sales Home" nopResourceTitle="Admin.Sitemap.SalesHomeTitle" nopResourceDescription="Admin.Sitemap.SalesHomeDescription" >
+      <siteMapNode title="所有订单" url="~/administration/orders.aspx" description="Manage Customer Orders" nopResourceTitle="Admin.Sitemap.OrdersTitle" nopResourceDescription="Admin.Sitemap.OrdersDescription" />
+      <siteMapNode title="退、换货" url="~/administration/returnrequests.aspx" description="Manage Return Requests" nopResourceTitle="Admin.Sitemap.ReturnRequestsTitle" nopResourceDescription="Admin.Sitemap.ReturnRequestsDescription" />
+      <siteMapNode title="购物车" url="~/administration/currentshoppingcarts.aspx" description="Manage Current Shopping Carts" nopResourceTitle="Admin.Sitemap.CurrentShoppingCartsTitle" nopResourceDescription="Admin.Sitemap.CurrentShoppingCartsDescription" />
+      <siteMapNode title="销售报表" url="~/administration/salesreport.aspx" description="View Sales Report" nopResourceTitle="Admin.Sitemap.SalesReportTitle" nopResourceDescription="Admin.Sitemap.SalesReportDescription" />
+    </siteMapNode>
+    <!-- End Sales -->
+
+    <!-- Customers -->
+    <siteMapNode title="用户管理" url="~/administration/customershome.aspx" IconUrl="~/administration/common/ico-customers.png" description="用户管理" >
+      <siteMapNode title="所有用户" url="~/administration/customers.aspx" description="所有用户"/>
+      <siteMapNode title="在线用户" url="~/administration/onlinecustomers.aspx" description="在线用户"/>
+      <siteMapNode title="用户统计" url="~/administration/customerreports.aspx" description="用户统计"/>
+    </siteMapNode>
+    <!-- End Customers -->
+
+    <!-- Content Management -->
+    <siteMapNode title="内容管理" url="~/administration/contentmanagementhome.aspx" IconUrl="~/administration/common/ico-content.png" description="Content Management Home">
+      <siteMapNode title="网站页面" url="~/administration/topics.aspx" description="Manage Topics"/>
+    </siteMapNode>
+    <!-- End Content Management -->
+
+    <!-- Configuration -->
+    <siteMapNode title="配置管理" url="~/administration/configurationhome.aspx" IconUrl="~/administration/common/ico-configuration.png" description="Configuration Home" nopResourceTitle="Admin.Sitemap.ConfigurationTitle" nopResourceDescription="Admin.Sitemap.ConfigurationDescription" >
+      <siteMapNode title="全局设置" url="~/administration/globalsettings.aspx" description="Configure Global Settings" nopResourceTitle="Admin.Sitemap.GlobalSettingsTitle" nopResourceDescription="Admin.Sitemap.GlobalSettingsDescription" />
+      <siteMapNode title="邮箱账户" url="~/administration/emailaccounts.aspx" description="Configure Email Accounts" nopResourceTitle="Admin.Sitemap.EmailAccountsTitle" nopResourceDescription="Admin.Sitemap.EmailAccountsDescription" />
+      <siteMapNode title="黑名单" url="~/administration/blacklist.aspx" description="Manage banned IP addresses and networks" nopResourceTitle="Admin.Sitemap.BlacklistTitle" nopResourceDescription="Admin.Sitemap.BlacklistDescription" />
+      <siteMapNode title="支付设置" url="~/administration/paymentsettingshome.aspx" description="Payment Settings Home" nopResourceTitle="Admin.Sitemap.PaymentSettingsHomeTitle" nopResourceDescription="Admin.Sitemap.PaymentSettingsHomeDescription" >
+        <siteMapNode title="支付方式" url="~/administration/paymentmethods.aspx" description="Manage Payment Methods" nopResourceTitle="Admin.Sitemap.PaymentMethodsTitle" nopResourceDescription="Admin.Sitemap.PaymentMethodsDescription" />
+      </siteMapNode>
+      <siteMapNode title="本地化" url="~/administration/locationsettingshome.aspx" description="Location Settings Home" nopResourceTitle="Admin.Sitemap.LocationSettingsHomeTitle" nopResourceDescription="Admin.Sitemap.LocationSettingsHomeDescription" >
+        <siteMapNode title="省份管理" url="~/administration/stateprovinces.aspx" description="Manage States / Provinces" nopResourceTitle="Admin.Sitemap.StateProvincesTitle" nopResourceDescription="Admin.Sitemap.StateProvincesDescription" />
+      </siteMapNode>
+      <siteMapNode title="操作日志" url="~/administration/activityloghome.aspx" description="Activity Log Home" nopResourceTitle="Admin.Sitemap.ActivityLogHomeTitle" nopResourceDescription="Admin.Sitemap.ActivityLogHomeDescription" >
+        <siteMapNode title="操作类型" url="~/administration/activitytypes.aspx" description="Manage Activity Types" nopResourceTitle="Admin.Sitemap.ActivityTypesTitle" nopResourceDescription="Admin.Sitemap.ActivityTypesDescription" />
+        <siteMapNode title="操作日志" url="~/administration/activitylog.aspx" description="View Activity Log" nopResourceTitle="Admin.Sitemap.ActivityLogTitle" nopResourceDescription="Admin.Sitemap.ActivityLogDescription" />
+      </siteMapNode>
+      <siteMapNode title="所有设置" url="~/administration/settings.aspx" description="Manage All Settings" nopResourceTitle="Admin.Sitemap.SettingsTitle" nopResourceDescription="Admin.Sitemap.SettingsDescription" />
+      <siteMapNode title="短信提供商" url="~/administration/smsproviders.aspx" description="Manage SMS Providers" nopResourceTitle="Admin.Sitemap.SMSProvidersTitle" nopResourceDescription="Admin.Sitemap.SMSProvidersDescription" />
+
+    </siteMapNode>
+    <!-- End Configuration -->
+
+    <!-- System -->
+    <siteMapNode title="系统管理" url="~/administration/systemhome.aspx" IconUrl="~/administration/common/ico-system.png" description="System Home" nopResourceTitle="Admin.Sitemap.SystemHomeTitle" nopResourceDescription="Admin.Sitemap.SystemHomeDescription" >
+      <siteMapNode title="所有日志" url="~/administration/logs.aspx" description="View Application Log" nopResourceTitle="Admin.Sitemap.LogsTitle" nopResourceDescription="Admin.Sitemap.LogsDescription" />
+      <siteMapNode title="消息队列" url="~/administration/messagequeue.aspx" description="Manage Message Queue" nopResourceTitle="Admin.Sitemap.MessageQueueTitle" nopResourceDescription="Admin.Sitemap.MessageQueueDescription" />
+      <siteMapNode title="数据与维护" url="~/administration/maintenance.aspx" description="Maintenance" nopResourceTitle="Admin.Sitemap.MaintenanceTitle" nopResourceDescription="Admin.Sitemap.MaintenanceDescription" />
+      <siteMapNode title="警告信息" url="~/administration/warnings.aspx" description="Warnings" nopResourceTitle="Admin.Sitemap.WarningsTitle" nopResourceDescription="Admin.Sitemap.WarningsDescription" />
+      <siteMapNode title="系统信息" url="~/administration/systeminformation.aspx" description="View System Information" nopResourceTitle="Admin.Sitemap.SystemInformationTitle" nopResourceDescription="Admin.Sitemap.SystemInformationDescription" />
+    </siteMapNode>
+    <!-- System -->
+    
   </siteMapNode>
 </siteMap>

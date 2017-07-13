@@ -217,31 +217,60 @@ if (exists (select * from sys.objects where name = 'address_add'))
     drop proc address_add
 go
 create proc address_add
-    @Id 				int,
 	@CustomerId			int,
 	@Name				varchar(255),
-	@PhoneNumber
-	@Email
-	@Address1
-	@Address2
-	@City
-	@StateProvinceId
-	@ZipPostalCode
-	@CreatedOn
-	@UpdatedOn
+	@PhoneNumber		varchar(255),
+	@Address1			varchar(255),
+	@Address2			varchar(255),
+	@City				varchar(255),
+	@StateProvinceId	int,
+	@ZipPostalCode		varchar(255),
+	@CreatedOn			datetime,
+	@UpdatedOn			datetime
 as
 begin    
-    select * from [Address] where CustomerId=@CustomerId
-
+    insert into [Address](CustomerId,Name,PhoneNumber,Address1,Address2,City,StateProvinceId,ZipPostalCode,CreatedOn,UpdatedOn)
+	values(@CustomerId,@Name,@PhoneNumber,@Address1,@Address2,@City,@StateProvinceId,@ZipPostalCode,@CreatedOn,@UpdatedOn)
+	
 end
 
 if (exists (select * from sys.objects where name = 'address_update'))
     drop proc address_update
 go
 create proc address_update
-    @CustomerId 		int
+    @Id 				int,
+	@CustomerId			int,
+	@Name				varchar(255),
+	@PhoneNumber		varchar(255),
+	@Address1			varchar(255),
+	@Address2			varchar(255),
+	@City				varchar(255),
+	@StateProvinceId	int,
+	@ZipPostalCode		varchar(255),
+	@CreatedOn			datetime,
+	@UpdatedOn			datetime
 as
 begin    
-    select * from [Address] where CustomerId=@CustomerId
-
+    update [Address] set CustomerId=@CustomerId,Name=@Name,PhoneNumber=@PhoneNumber,
+	Address1=@Address1,Address2=@Address2,City=@City,StateProvinceId=@StateProvinceId,ZipPostalCode=@ZipPostalCode,
+	CreatedOn=@CreatedOn,UpdatedOn=@UpdatedOn where Id=@Id
 end
+
+
+
+
+
+if (exists (select * from sys.objects where name = 'customersession_add'))
+    drop proc customersession_add
+go
+create proc customersession_add
+    @CustomerSessionGuid  uniqueidentifier,
+	@CustomerId			int,
+	@LastAccessed				datetime,
+	@IsExpired		bit
+as
+begin    
+    insert into [CustomerSession](CustomerSessionGuid,CustomerId,LastAccessed,IsExpired) 
+	values(@CustomerSessionGuid,@CustomerId,@LastAccessed,@IsExpired)
+end
+

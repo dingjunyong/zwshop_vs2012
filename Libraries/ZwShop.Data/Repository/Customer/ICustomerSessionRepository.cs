@@ -15,14 +15,14 @@ namespace ZwShop.Data.Repository.CustomerManagement
 
         int DeleteCustomerSession(Guid customerSessionGuid);
 
-        List<CustomerSession> GetAllCustomerSessions();
+        IEnumerable<CustomerSession> GetAllCustomerSessions();
 
-        List<CustomerSession> GetAllCustomerSessionsWithNonEmptyShoppingCart();
+        IEnumerable<CustomerSession> GetAllCustomerSessionsWithNonEmptyShoppingCart();
 
         int DeleteExpiredCustomerSessions(DateTime olderThan);
 
-        int UpdateCustomerSession();
+        int UpdateCustomerSession(CustomerSession customerSession);
 
-        int InsertCustomerSession();
+        int InsertCustomerSession(CustomerSession customerSession);
     }
 }

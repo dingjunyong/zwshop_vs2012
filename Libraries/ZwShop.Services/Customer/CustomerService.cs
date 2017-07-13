@@ -28,13 +28,13 @@ namespace ZwShop.Services.CustomerManagement
     public partial class CustomerService : ICustomerService
     {
         private ICustomerRepository _customerRepository;
+        private ICustomerSessionRepository _customerSessionRepository;
 
-        public CustomerService(ICustomerRepository customerRepository) 
+        public CustomerService(ICustomerRepository customerRepository,ICustomerSessionRepository customerSessionRepository) 
         {
             this._customerRepository = customerRepository;
+            this._customerSessionRepository = customerSessionRepository;
         }
-
-        #region 用户操作
 
         public Customer SetEmail(int customerId, string newEmail)
         {
@@ -51,22 +51,12 @@ namespace ZwShop.Services.CustomerManagement
             throw new NotImplementedException();
         }
 
-        public void CreateAnonymousUser()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Customer> GetCustomersByCustomerRoleId(int customerRoleId)
         {
             throw new NotImplementedException();
         }
 
-        public void MarkCustomerAsDeleted(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Customer GetCustomerByEmail(string email)
+        public void DeleteCustomer(int customerId)
         {
             throw new NotImplementedException();
         }
@@ -96,41 +86,6 @@ namespace ZwShop.Services.CustomerManagement
             throw new NotImplementedException();
         }
 
-        public void ModifyPassword(string email, string newPassword)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ModifyPassword(int customerId, string newPassword)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Activate(Guid customerGuid)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Activate(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Activate(int customerId, bool sendCustomerWelcomeMessage)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Deactivate(Guid customerGuid)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Deactivate(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Login(Guid customerGuid, string password)
         {
             var customer = _customerRepository.GetCustomerByGuid(customerGuid);
@@ -143,7 +98,7 @@ namespace ZwShop.Services.CustomerManagement
             if (customer.Deleted)
                 return false;
 
-            if (customer.CustomerRoleIdType==CustomerRoleIdType.Guest)
+            if (customer.CustomerRoleIdType == CustomerRoleIdType.Guest)
                 return false;
 
             string passwordHash = CreatePasswordHash(password, customer.SaltKey);
@@ -185,28 +140,40 @@ namespace ZwShop.Services.CustomerManagement
                 ShopContext.Current.Session.IsExpired = false;
                 ShopContext.Current.Session.LastAccessed = DateTime.UtcNow;
                 ShopContext.Current.Session.CustomerId = customer.Id;
-                ShopContext.Current.Session = SaveCustomerSession(ShopContext.Current.Session.CustomerSessionGuid, ShopContext.Current.Session.CustomerId, NopContext.Current.Session.LastAccessed, NopContext.Current.Session.IsExpired);
+                ShopContext.Current.Session = SaveCustomerSession(ShopContext.Current.Session.CustomerSessionGuid,
+                    ShopContext.Current.Session.CustomerId, ShopContext.Current.Session.LastAccessed,
+                    ShopContext.Current.Session.IsExpired);
             }
             return result;
-
-
         }
-
         public void Logout()
         {
-            throw new NotImplementedException();
+            if (ShopContext.Current != null)
+            {
+                ShopContext.Current.ResetSession();
+            }
+            if (ShopContext.Current != null &&
+                //ShopContext.Current.IsCurrentCustomerImpersonated &&
+                ShopContext.Current.OriginalUser != null)
+            {
+                //ShopContext.Current.OriginalUser.ImpersonatedCustomerGuid = Guid.Empty;
+            }
+            if (HttpContext.Current != null && HttpContext.Current.Session != null)
+            {
+                HttpContext.Current.Session.Abandon();
+            }
+            FormsAuthentication.SignOut();
         }
-        #endregion
 
-        #region 用户Session操作
+        #region CustomerSession
         public CustomerSession GetCustomerSessionByGuid(Guid customerSessionGuid)
         {
-            throw new NotImplementedException();
+            return _customerSessionRepository.GetCustomerSessionByGuid(customerSessionGuid);
         }
 
         public CustomerSession GetCustomerSessionByCustomerId(int customerId)
         {
-            throw new NotImplementedException();
+            return _customerSessionRepository.GetCustomerSessionByCustomerId(customerId);
         }
 
         public void DeleteCustomerSession(Guid customerSessionGuid)
@@ -226,21 +193,43 @@ namespace ZwShop.Services.CustomerManagement
 
         public void DeleteExpiredCustomerSessions(DateTime olderThan)
         {
-            throw new NotImplementedException();
+            _customerSessionRepository.DeleteExpiredCustomerSessions(olderThan);
         }
 
         public CustomerSession SaveCustomerSession(Guid customerSessionGuid, int customerId, DateTime lastAccessed, bool isExpired)
         {
-            throw new NotImplementedException();
+            var customerSession = _customerSessionRepository.GetCustomerSessionByGuid(customerSessionGuid);
+            if (customerSession == null)
+            {
+                customerSession = new CustomerSession()
+                {
+                    CustomerSessionGuid = customerSessionGuid,
+                    CustomerId = customerId,
+                    LastAccessed = lastAccessed,
+                    IsExpired = isExpired
+                };
+                _customerSessionRepository.InsertCustomerSession(customerSession);
+            }
+            else
+            {
+                customerSession.CustomerSessionGuid = customerSessionGuid;
+                customerSession.CustomerId = customerId;
+                customerSession.LastAccessed = lastAccessed;
+                customerSession.IsExpired = isExpired;
+                _customerSessionRepository.UpdateCustomerSession(customerSession);
+            }
+            return customerSession;
+
         }
-        #endregion
+        #endregion 
 
-
+        #region 私有类
         private string CreatePasswordHash(string password, string salt)
         {
             //MD5, SHA1
             string passwordFormat = "SHA1";
             return FormsAuthentication.HashPasswordForStoringInConfigFile(password + salt, passwordFormat);
         }
+        #endregion
     }
 }

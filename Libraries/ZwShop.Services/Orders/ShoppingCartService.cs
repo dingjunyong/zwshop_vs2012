@@ -30,7 +30,7 @@ namespace ZwShop.Services.Orders
 
         public ShoppingCart GetShoppingCartByCustomerSessionGuid(ShoppingCartTypeEnum shoppingCartType, Guid customerSessionGuid)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public ShoppingCartItem GetShoppingCartItemById(int shoppingCartItemId)

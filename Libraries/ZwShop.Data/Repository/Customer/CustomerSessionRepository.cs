@@ -57,24 +57,24 @@ namespace ZwShop.Data.Repository.CustomerManagement
             }
         }
 
-        public List<CustomerSession> GetAllCustomerSessions()
+        public IEnumerable<CustomerSession> GetAllCustomerSessions()
         {
             using (var conn = _context.OpenConnection())
             {
                 var result = conn.Query<CustomerSession>(
                     "customersession_get_all",
-                    commandType: CommandType.StoredProcedure).ToList();
+                    commandType: CommandType.StoredProcedure);
                 return result;
             }
         }
 
-        public List<CustomerSession> GetAllCustomerSessionsWithNonEmptyShoppingCart()
+        public IEnumerable<CustomerSession> GetAllCustomerSessionsWithNonEmptyShoppingCart()
         {
             using (var conn = _context.OpenConnection())
             {
                 var result = conn.Query<CustomerSession>(
                     "customersession_get_with_nonempty_shoppingcart",
-                    commandType: CommandType.StoredProcedure).ToList();
+                    commandType: CommandType.StoredProcedure);
                 return result;
             }
         }
@@ -90,10 +90,39 @@ namespace ZwShop.Data.Repository.CustomerManagement
             }
         }
 
-        public int SaveCustomerSession(Guid customerSessionGuid,
-            int customerId, DateTime lastAccessed, bool isExpired)
+        public int InsertCustomerSession(CustomerSession customerSession)
         {
-            throw new NotImplementedException();
+            using (var conn = _context.OpenConnection())
+            {
+                var param = new DynamicParameters();
+                param.Add("@CustomerSessionGuid", customerSession.CustomerSessionGuid);
+                param.Add("@CustomerId", customerSession.CustomerId);
+                param.Add("@LastAccessed", customerSession.LastAccessed);
+                param.Add("@IsExpired", customerSession.IsExpired);
+                var result = conn.Execute(
+                    "customersession_add",
+                    param: param,
+                    commandType: CommandType.StoredProcedure);
+                return result;
+            }
+        }
+
+
+        public int UpdateCustomerSession(CustomerSession customerSession)
+        {
+            using (var conn = _context.OpenConnection())
+            {
+                var param = new DynamicParameters();
+                param.Add("@CustomerSessionGuid", customerSession.CustomerSessionGuid);
+                param.Add("@CustomerId", customerSession.CustomerId);
+                param.Add("@LastAccessed", customerSession.LastAccessed);
+                param.Add("@IsExpired", customerSession.IsExpired);
+                var result = conn.Execute(
+                    "customersession_update",
+                    param: param,
+                    commandType: CommandType.StoredProcedure);
+                return result;
+            }
         }
     }
 }
