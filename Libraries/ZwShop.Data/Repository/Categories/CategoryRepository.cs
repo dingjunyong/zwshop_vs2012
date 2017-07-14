@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using Dapper;
+using System.Linq;
 
 namespace ZwShop.Data.Repository.Categories
 {
@@ -73,9 +74,23 @@ namespace ZwShop.Data.Repository.Categories
                 var param = new DynamicParameters();
                 param.Add("@Id", id);
                 var result = conn.Execute(
-                   "Category_delete_by_id",
+                   "category_delete_by_id",
                    param: param,
                    commandType: CommandType.StoredProcedure);
+                return result;
+            }
+        }
+
+
+        public Category GetCategoryById(int id)
+        {
+            using (var conn = _context.OpenConnection())
+            {
+                var param = new DynamicParameters();
+                param.Add("@Id", id);
+                var result = conn.Query<Category>(
+                   "category_get_by_id",
+                   commandType: CommandType.StoredProcedure).FirstOrDefault();
                 return result;
             }
         }

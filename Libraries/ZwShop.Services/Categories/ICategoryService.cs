@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ZwShop.Data.Repository.Categories;
 
 namespace ZwShop.Services.Categories
 {
@@ -6,18 +7,9 @@ namespace ZwShop.Services.Categories
     {
         bool IsCategoryAccessDenied(Category category);
 
-        void MarkCategoryAsDeleted(int categoryId);
+        void CategoryDeleted(int id);
 
-        List<Category> GetAllCategories();
-        
-        List<Category> GetAllCategories(bool showHidden);
-        
-        List<Category> GetAllCategoriesByParentCategoryId(int parentCategoryId);
-        
-        List<Category> GetAllCategoriesByParentCategoryId(int parentCategoryId,
-            bool showHidden);
-        
-        List<Category> GetAllCategoriesDisplayedOnHomePage();
+        List<Category> GetAllCategories(int? parentCategoryId=null, bool? showHidden=null);
                 
         Category GetCategoryById(int categoryId);
 

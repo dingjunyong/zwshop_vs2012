@@ -15,5 +15,7 @@ namespace ZwShop.Data.Repository.Categories
         int UpdateCategory(Category objRecord);
 
         int DeleteCategory(int id);
+
+        Category GetCategoryById(int id);
     }
 }

@@ -28,6 +28,7 @@ namespace ZwShop.Data.Repository.Categories
         public DateTime UpdatedOn { get; set; }
         #endregion
 
+        public virtual Category ParentCategory { get; set; }
 
     }
 }

@@ -107,9 +107,6 @@
     <Compile Include="Caching\ShopStaticCache.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Categories\Category.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Categories\CategoryService.cs">
       <SubType>Code</SubType>
     </Compile>
